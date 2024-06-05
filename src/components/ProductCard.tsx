@@ -24,7 +24,7 @@ export const ProductCard = ({ product, handleImageClick }: ProductCardProps) => 
       </div>
       <div className="h-36 sm:h-40 relative bg-gray-800 rounded-b">
         <div className="text-zinc-200 text-1xl pt-4 px-4 font-semibold line-clamp-1">
-          {product.name ?? 'Sold Out'}
+          #{product.id} {product.name ?? 'Sold Out'}
         </div>
         <div className="text-sm text-zinc-400 px-4 font-primary font-light line-clamp-3">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quisquam, fugiat excepturi esse veritatis maiores qui odit voluptates accusamus ipsa ea! Quas ipsam ullam illo perferendis id! Deleniti, ipsam veritatis.
