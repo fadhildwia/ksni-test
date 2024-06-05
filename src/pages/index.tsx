@@ -2,7 +2,9 @@ import { AboutSection } from '@/components/AboutSection';
 import { HomeSection } from '@/components/HomeSection';
 import ImagePreviewModal from '@/components/ImagePreview';
 import ProductListings from '@/components/ProductListings';
+import Head from 'next/head';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 
 interface Product {
@@ -12,6 +14,8 @@ interface Product {
 }
 
 const Home: React.FC = () => {
+  const router = useRouter();
+
   const [products, setProducts] = useState<Product[]>([]);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
@@ -25,8 +29,6 @@ const Home: React.FC = () => {
         const imageData = await imageResponse.json();
 
         const images = imageData.data;
-
-        console.log(productData)
 
         const matchedProducts = productData.data.map((product: any) => {
           const image = images.find((img: any) => img.id.includes(product.id))?.image;
@@ -48,6 +50,9 @@ const Home: React.FC = () => {
 
   return (
     <div className="container mx-5 sm:mx-auto w-full min-h-screen flex-col justify-center items-center">
+      <Head>
+        <title>Online Shop - {router.asPath.replace('/#', '').toUpperCase()}</title>
+      </Head>
       <Image src="/images/hero-bg.png" alt="star" fill />
       <Image src="/images/gradient.webp" alt="star" fill />
       <HomeSection />
