@@ -51,7 +51,7 @@ const Home: React.FC = () => {
   return (
     <div className="container mx-5 sm:mx-auto w-full min-h-screen flex-col justify-center items-center">
       <Head>
-        <title>Online Shop - {router.asPath.replace('/#', '').toUpperCase()}</title>
+        <title>Online Shop - {router.asPath === '/'  ? 'HOME' : router.asPath.replace('/#', '').toUpperCase()}</title>
       </Head>
       <Image src="/images/hero-bg.png" alt="star" fill />
       <Image src="/images/gradient.webp" alt="star" fill />
